@@ -2,7 +2,17 @@ const express = require("express")
 const app = express()
 const router = express.Router()
 
-//start the web server... app.listen(portnumber, function)
-app.listen(3000, function(){
-    console.log("Listening on port 3000")
+router.get("/songs", function(req, res){
+    const song = {
+        title: "Uptown Funk",
+        artist: "Bruno Mars",
+        popularity: 10,
+        genre: ["funk", "boogie"]
+    }
+
+    res.json(song)
 });
+
+// all requests usually using an api start with /api.. so url would be localhost:3000/api/songs
+app.use("/api", router)
+app.listen(3000)
