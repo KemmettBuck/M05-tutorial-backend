@@ -1,4 +1,5 @@
 const express = require("express")
+//have to use cors to host a front end and backend on same device
 var cors = require('cors')
 const app = express()
 app.use(cors())
